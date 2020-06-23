@@ -1,0 +1,1 @@
+INSERT INTO `mir_simple_logic_3`.`logic_variable` (`name`, `value`, `DC`) VALUES ('gm', '1', 'gm');

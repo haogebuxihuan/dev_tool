@@ -1,0 +1,5 @@
+/op/server/web_msg_get_main_server_data
+plat=plat
+plat_id=plat_id
+time=1
+server_id=1
