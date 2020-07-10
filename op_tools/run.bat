@@ -1,9 +1,11 @@
 @echo off
 
+setlocal enabledelayedexpansion
+
 set "base_url=http://192.168.1.66:9090"
 set "md5_key=09e09b3b4c037edca36b1075dcbc24f5"
-
 set "file_content=%1"
+
 if "%file_content%" equ "" (
 	echo send invalid
 	goto :exit
@@ -42,7 +44,8 @@ goto :exit
 :next_step
 for /f "skip=2 tokens=1,2 delims==" %%a in (%home%%file_content%) do (
 	>>send_content set /p=^&%%a^=%%b<nul
-	>>send_content_md5 set /p=^&%%a^=%%b<nul
+	set uu=%%b
+	>>send_content_md5 set /p=^&%%a^=!uu:\=!<nul
 )
 
 >>send_content_md5 set /p=%md5_key%<nul
